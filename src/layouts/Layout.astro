@@ -11,6 +11,7 @@ interface Props {
 }
 
 const { description, title } = Astro.props
+const image = new URL("/porfolio.webp", Astro.site)
 ---
 
 <!doctype html>
@@ -22,6 +23,22 @@ const { description, title } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <meta property="og:image" content={image} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:site_name" content="Midudev Porfolio" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <link rel="canonical" href={Astro.url} />
+
     <ViewTransitions />
   </head>
 
